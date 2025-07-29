@@ -1,12 +1,12 @@
 <script setup>
+import Header from './components/layout/Header.vue';
 import Home from './pages/Home.vue';
 const date = new Date().getFullYear();
 
 </script>
 
 <template>
-  <header></header>
-  
+  <Header />
   <main>
     <Home />
   </main>
