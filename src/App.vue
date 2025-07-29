@@ -7,7 +7,7 @@ const date = new Date().getFullYear();
 
 <template>
   <Header />
-  <main>
+  <main class="container mx-auto p-4">
     <Home />
   </main>
   <footer>
