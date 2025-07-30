@@ -26,24 +26,26 @@ defineProps({
 
 const variants = {
     primary: 'bg-sky-500 text-white hover:bg-sky-600',
-    secondary: 'bg-gray-200 hover:bg-gray-300',
-    danger: 'bg-red-500 text-white hover:bg-red-600',
+    secondary: 'bg-gray-400 hover:bg-gray-600',
+    success: 'bg-green-600 text-white hover:bg-green-700',
+    warning: 'bg-yellow-500 text-white hover:bg-yellow-600',
+    danger: 'bg-red-500 text-white hover:bg-red-700',
 };
 
 const sizes = {
-    sm: 'px-3 py-1 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-5 py-3 text-lg',
+    sm: 'px-3 py-1 m-2 text-sm',
+    md: 'px-4 py-2 m-2 text-base',
+    lg: 'px-5 py-3 m-2 text-lg',
 };
 
 </script>
 <template>
     <button
         :class="[
-            'inline-flex items-center gap-2 font-medium rounded transition hover:cursor-pointer',
+            'inline-flex items-center gap-2 font-medium rounded transition',
             sizes[size],
             variants[variant],
-            disabled ? 'opacity-50 cursor-not-allowed' : '',
+            disabled ? 'opacity-50 hover:cursor-not-allowed' : 'hover:cursor-pointer',
         ]"
         :disabled="disabled"
     >
