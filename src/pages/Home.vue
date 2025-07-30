@@ -4,8 +4,8 @@ import { PlusIcon, CheckIcon, XMarkIcon, QuestionMarkCircleIcon, NoSymbolIcon } 
 import { useApiStore } from '@/stores/toolStore';
 
 const apiStore = useApiStore();
+
 const apiUrl = apiStore.apiUrl;
-console.log('API URL:', apiUrl);
 </script>
 <template>
     <h1 class="text-9xl font-black font-stretch-extra-expanded">JackyBlog</h1>
