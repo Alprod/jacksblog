@@ -7,7 +7,7 @@ defineProps({
     variant: {
         type: String,
         default: 'primary',
-        validator: value => ['primary', 'secondary', 'danger'].includes(value),
+        validator: value => ['primary', 'secondary', 'danger', 'warning', 'success'].includes(value),
     },
     size: {
         type: String,
@@ -15,7 +15,7 @@ defineProps({
         validator: value => ['sm', 'md', 'lg'].includes(value),
     },
     icon: {
-        type: [String, Object],
+        type: [Object, Function],
         default: null,
     },
     disabled: {

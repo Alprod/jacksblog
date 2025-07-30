@@ -9,7 +9,6 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
-dist
 dist-ssr
 coverage
 *.local
@@ -31,7 +30,8 @@ coverage
 
 # dotenv environment variable files
 .env
-.env*
-
+.env.development
+.env.test
+.env.production
 
 

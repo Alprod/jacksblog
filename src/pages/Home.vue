@@ -1,6 +1,11 @@
 <script setup>
-import Button from '../components/ui/Button.vue';
+import Button from '@/components/ui/Button.vue';
 import { PlusIcon, CheckIcon, XMarkIcon, QuestionMarkCircleIcon, NoSymbolIcon } from '@heroicons/vue/24/outline';
+import { useApiStore } from '@/stores/toolStore';
+
+const apiStore = useApiStore();
+const apiUrl = apiStore.apiUrl;
+console.log('API URL:', apiUrl);
 </script>
 <template>
     <h1 class="text-9xl font-black font-stretch-extra-expanded">JackyBlog</h1>
