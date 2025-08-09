@@ -1,5 +1,4 @@
 <script setup>
-import { computed, ref } from 'vue';
 import { useApiStore } from '@/stores/toolStore';
 defineProps({
     title: {
