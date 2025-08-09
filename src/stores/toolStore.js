@@ -14,10 +14,12 @@ export const useLoadingStore = defineStore('loading',() => {
 
 export const useApiStore = defineStore('api', () => {
     const apiUrl = ref(import.meta.env.VITE_API_URL || 'http://localhost:5001/leblogapi');
+    const apiUrlImages = ref(import.meta.env.VITE_ASSETS_URL || 'http://localhost:5001/uploads');
 
     function $reset() {
         apiUrl.value = import.meta.env.VITE_API_URL || 'http://localhost:5001/leblogapi'
+        apiUrlImages.value = import.meta.env.VITE_ASSETS_URL || 'http://localhost:5001/uploads';
     }
 
-    return { apiUrl, $reset }
+    return { apiUrl, apiUrlImages, $reset }
 });
