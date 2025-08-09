@@ -1,2 +1,5 @@
 @import './base.css';
 
+.title {
+    @apply text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black font-stretch-extra-expanded
+}
