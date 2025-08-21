@@ -1,5 +1,21 @@
 @import './base.css';
 
 .title {
-    @apply text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black font-stretch-extra-expanded
+    @apply
+        text-5xl
+        sm:text-7xl
+        md:text-8xl
+        xl:text-9xl
+        font-black
+        font-stretch-extra-expanded
+}
+.nav-link {
+    @apply
+        text-xl
+        text-gray-900
+        dark:text-white
+        hover:text-gray-700
+        dark:hover:text-gray-300
+        hover:cursor-pointer
+        hover:underline
 }
