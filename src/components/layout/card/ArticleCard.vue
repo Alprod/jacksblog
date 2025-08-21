@@ -1,9 +1,11 @@
 <script setup>
 import { useApiStore } from '@/stores/toolStore';
 defineProps({
+    _id: {
+      type: String,
+    },
     title: {
         type: String,
-        required: true,
     },
     content: {
         type: String,
