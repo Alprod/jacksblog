@@ -10,7 +10,14 @@ export const useArticles = () => {
     onMounted( async () => {
         loadingStore.loading = true;
         try {
-            articles.value = await fetchArticles();
+            const resp = await fetchArticles();
+
+            articles.value = Array.isArray(resp)
+                ? { data: resp, message: '' }
+                : {
+                    data: Array.isArray(resp?.data) ? resp.data : [],
+                    message: typeof resp?.message === 'string' ? resp.message : ''
+                };
         } catch (er) {
             error.value = "Une erreur s'est produite lors du chargement des articles.";
         } finally {
