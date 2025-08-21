@@ -22,7 +22,6 @@ const { articles, loading, error } = useArticles();
           v-for="article in articles.data"
           :key="article._id"
           v-bind="article"
-          title="article.title"
       />
     </section>
   </div>
