@@ -17,7 +17,7 @@ function toggleDark() {
 }
 </script>
 <template>
-    <button @click="toggleDark" class="p-2 rounded transition-colors">
+    <button @click="toggleDark" class="p-2 rounded transition-colors hover:cursor-pointer">
         <SunIcon v-if="!isDark" class="h-8 w-8 " />
         <MoonIcon v-else class="h-8 w-8 text-gray-300" />
     </button>
