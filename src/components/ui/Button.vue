@@ -1,5 +1,9 @@
 <script setup>
 defineProps({
+    type: {
+        type: String,
+        default: 'submit',
+    },
     label: {
         type: String,
         default: 'Button',
@@ -33,16 +37,17 @@ const variants = {
 };
 
 const sizes = {
-    sm: 'px-3 py-1 m-2 text-sm',
-    md: 'px-4 py-2 m-2 text-base',
-    lg: 'px-5 py-3 m-2 text-lg',
+    sm: 'px-3 py-1 my-2 text-sm',
+    md: 'px-4 py-2 my-2 text-base',
+    lg: 'px-5 py-3 my-2 text-lg',
 };
 
 </script>
 <template>
     <button
+        :type="type"
         :class="[
-            'inline-flex items-center gap-2 font-medium rounded transition',
+            'inline-flex items-center gap-2 font-medium rounded-lg transition',
             sizes[size],
             variants[variant],
             disabled ? 'opacity-50 hover:cursor-not-allowed' : 'hover:cursor-pointer',
