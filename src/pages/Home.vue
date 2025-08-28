@@ -1,6 +1,4 @@
 <script setup>
-import Button from '@/components/ui/Button.vue';
-import { PlusIcon } from '@heroicons/vue/24/outline';
 import { useCurrentUser } from "@/composables/useCurrentUser.js";
 
 const { user } = useCurrentUser()
