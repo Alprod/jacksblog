@@ -5,7 +5,7 @@ import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import NavItems from "@/components/ui/nav/NavItems.vue";
 
 const isOpen = ref(false);
-const routeName = ['Home', 'Articles'];
+const routeName = ['Home', 'Articles', 'Login'];
 
 function closeMenu() {
   isOpen.value = !isOpen.value;
