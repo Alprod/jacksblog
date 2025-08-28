@@ -1,15 +1,14 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import NavItems from "@/components/ui/nav/NavItems.vue";
 import { useCurrentUser } from "@/composables/useCurrentUser.js";
 
 const isOpen = ref(false);
-const { user } = useCurrentUser();
-console.log(user.value);
-const login = user.value.username ? 'Logout' : 'Login';
-const routeName = ['Home', 'Articles', login];
+const { user, isAuthenticated } = useCurrentUser();
+const login = computed(() => (isAuthenticated.value ? 'Logout' : 'Login') )
+const routeName = computed(()=>['Home', 'Articles', login.value]);
 
 function closeMenu() {
   isOpen.value = !isOpen.value;

@@ -5,11 +5,11 @@ let iniPromise = null;
 
 export function useCurrentUser(){
     const userStore = useFetchCurrentUserStore();
-    const { user } = storeToRefs(userStore);
+    const { user, isAuthenticated } = storeToRefs(userStore);
     if(!iniPromise && userStore.token && !userStore.user) {
         iniPromise = userStore.fetchUser().finally(() => {
             iniPromise = null;
         });
     }
-    return { user, fetchUser: userStore.fetchUser() };
+    return { user, isAuthenticated, fetchUser: userStore.fetchUser() };
 }
