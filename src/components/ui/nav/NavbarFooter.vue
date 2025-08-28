@@ -50,13 +50,13 @@ const routeName = ['Home', 'Articles'];
             © {{ year }} {{ appName }}. Tous droits réservés.
           </p>
           <div class="flex gap-4 text-xs">
-            <router-link to="/legal" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+            <router-link to="/" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
               Mentions légales
             </router-link>
-            <router-link to="/privacy" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+            <router-link to="/" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
               Confidentialité
             </router-link>
-            <router-link to="/rss" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+            <router-link to="/" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
               RSS
             </router-link>
           </div>

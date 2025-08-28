@@ -1,6 +1,6 @@
 import { ref, onMounted } from 'vue';
-import { useLoadingStore } from '@/stores/toolStore';
-import { fetchArticles } from '@/services/articleService';
+import { useLoadingStore } from '@/stores/toolStore.js';
+import { fetchArticles } from '@/services/articleService.js';
 
 export const useArticles = () => {
     const loadingStore = useLoadingStore();
