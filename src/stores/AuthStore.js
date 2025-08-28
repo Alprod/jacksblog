@@ -41,10 +41,28 @@ export const useFetchCurrentUserStore = defineStore( "auth", {
                     return 'Home';
             }
         },
-        logout() {
-            sessionStorage.removeItem( 'token' );
-            this.user = null;
-            this.token = null;
+        async logout() {
+            const token = this.token || sessionStorage.getItem( 'token' );
+            try {
+                if ( token ) {
+                    const apiStore = useApiStore();
+                    const url = `${ apiStore.apiUrl }/auth/logout`;
+                    await fetchJson( url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${ token }`,
+                        },
+                    } )
+                }
+
+            }catch ( e ) {
+                console.error( e );
+            }finally {
+                sessionStorage.removeItem( 'token' );
+                this.user = null;
+                this.token = null;
+            }
         },
     }
 } );
