@@ -3,9 +3,13 @@ import { ref } from 'vue';
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import NavItems from "@/components/ui/nav/NavItems.vue";
+import { useCurrentUser } from "@/composables/useCurrentUser.js";
 
 const isOpen = ref(false);
-const routeName = ['Home', 'Articles', 'Login'];
+const { user } = useCurrentUser();
+console.log(user.value);
+const login = user.value.username ? 'Logout' : 'Login';
+const routeName = ['Home', 'Articles', login];
 
 function closeMenu() {
   isOpen.value = !isOpen.value;
