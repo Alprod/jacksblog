@@ -4,14 +4,18 @@ import { useRouter } from 'vue-router';
 import Button from "@/components/ui/Button.vue";
 import { useFetchCurrentUserStore } from "@/stores/AuthStore.js";
 import { useApiStore } from "@/stores/toolStore.js";
+import { useToastStore } from "@/stores/toastStore.js";
 import { fetchJson } from "@/helpers/api.js";
+import LoginForm from "@/components/ui/form/LoginForm.vue";
 
 const email = ref('')
 const password = ref('')
 const error = ref(null)
+const test = ref(null)
 const fetchUserCurrentStore = useFetchCurrentUserStore();
 const apiStore = useApiStore();
 const router = useRouter();
+const toast = useToastStore();
 
 async function handleLogin() {
   error.value = null;
@@ -38,9 +42,9 @@ async function handleLogin() {
     fetchUserCurrentStore.setToken(token);
     const userCurrent = await fetchUserCurrentStore.fetchUser();
     const path = fetchUserCurrentStore.setRole(userCurrent.role);
+
+    toast.success(`Bienvenue ${userCurrent.username}`, {title: "Connexion réussie", duration: 10000})
     await router.push({ name: path });
-
-
   }catch ( err ) {
     error.value = 'Une erreur s’est produite lors de la connexion';
   }
@@ -60,27 +64,11 @@ async function handleLogin() {
 
       <!-- Formulaire -->
       <form @submit.prevent="handleLogin" class="space-y-5" novalidate>
-        <!-- Email -->
-        <div>
-          <label class="block text-sm font-medium text-white mb-1">Email</label>
-          <input
-              v-model="email"
-              type="email"
-              class="w-full px-4 py-2 rounded-lg bg-white/30 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-400"
-              placeholder="ex: user@mail.com"
-          />
-        </div>
 
-        <!-- Password -->
-        <div>
-          <label class="block text-sm font-medium text-white mb-1">Mot de passe</label>
-          <input
-              v-model="password"
-              type="password"
-              class="w-full px-4 py-2 rounded-lg bg-white/30 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-400"
-              placeholder="••••••••"
-          />
-        </div>
+        <LoginForm
+            v-model:email="email"
+            v-model:password="password"
+        />
 
         <!-- Bouton login -->
         <div>
@@ -92,7 +80,7 @@ async function handleLogin() {
       <!-- Liens -->
       <p class="mt-6 text-center text-sm text-gray-200">
         Pas encore de compte ?
-        <router-link to="/register" class="text-pink-300 hover:underline">Inscris-toi</router-link>
+        <router-link to="/#" class="text-pink-300 hover:underline">Inscris-toi</router-link>
       </p>
     </div>
   </div>
