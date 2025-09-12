@@ -4,12 +4,12 @@ import { useFetchCurrentUserStore } from "@/stores/AuthStore.js";
 export default  [
     {
         path: '/login',
-        name: 'Login',
+        name: 'Connexion',
         component: Login
     },
     {
         path: '/logout',
-        name: 'Logout',
+        name: 'Deconnexion',
         beforeEnter: async () => {
             const authStore = useFetchCurrentUserStore();
             await authStore.logout();
