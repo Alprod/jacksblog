@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { useApiStore } from "./toolStore.js";
 import { fetchJson, normalizeUserResponse } from "@/helpers/api.js";
+import { useToastStore } from "@/stores/toastStore.js";
 
 export const useFetchCurrentUserStore = defineStore( "auth", {
     state: () => ({
@@ -43,6 +44,7 @@ export const useFetchCurrentUserStore = defineStore( "auth", {
         },
         async logout() {
             const token = this.token || sessionStorage.getItem( 'token' );
+            const toastStore = useToastStore();
             try {
                 if ( token ) {
                     const apiStore = useApiStore();
@@ -53,7 +55,8 @@ export const useFetchCurrentUserStore = defineStore( "auth", {
                             'Content-Type': 'application/json',
                             Authorization: `Bearer ${ token }`,
                         },
-                    } )
+                    })
+                    toastStore.info('Merci de votre visite', {title:'Deconnexion réussie'})
                 }
 
             }catch ( e ) {
