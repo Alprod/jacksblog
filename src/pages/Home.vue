@@ -2,8 +2,6 @@
 import { useCurrentUser } from "@/composables/useCurrentUser.js";
 
 const { user } = useCurrentUser()
-
-
 </script>
 <template>
     <h1 class="title font-black font-stretch-extra-expanded transition">JackyBlog</h1>
