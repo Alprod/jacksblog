@@ -8,7 +8,8 @@ const routeName = ['Home', 'Articles'];
 </script>
 
 <template>
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+  <div class="relative w-full">
+      <div class=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         <div class="grid gap-6 md:grid-cols-3 items-start">
           <!-- Brand -->
           <div>
@@ -62,4 +63,5 @@ const routeName = ['Home', 'Articles'];
           </div>
         </div>
       </div>
+  </div>
   </template>
